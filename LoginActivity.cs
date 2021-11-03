@@ -36,7 +36,7 @@ namespace XA_SQLiteDB2
                     var user = sq.GetUser(username.Text, password.Text);
                     if (user != null)
                     {
-                        Intent i = new Intent(this, typeof(UpdateActivity));
+                        Intent i = new Intent(this, typeof(ShowActivity));
                         i.PutExtra("username", user.Username);
                         StartActivity(i);
                     }
@@ -56,8 +56,21 @@ namespace XA_SQLiteDB2
 
             update.Click += delegate
             {
-                Intent i = new Intent(this, typeof(UpdateActivity));
-                StartActivity(i);
+                if (!string.IsNullOrEmpty(username.Text) && !string.IsNullOrEmpty(password.Text))
+                {
+                    SQLiteDB sq = new SQLiteDB();
+                    var user = sq.GetUser(username.Text, password.Text);
+                    if (user != null)
+                    {
+                        Intent i = new Intent(this, typeof(UpdateActivity));
+                        i.PutExtra("username", user.Username);
+                        StartActivity(i);
+                    }
+                    else
+                        Toast.MakeText(this, "Username or Password is Empty", ToastLength.Long).Show();
+                }
+                else
+                    Toast.MakeText(this, "user not phound!!!!", ToastLength.Long).Show();
             };
             close.Click += delegate
             {
