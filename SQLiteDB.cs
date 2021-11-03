@@ -84,7 +84,23 @@ namespace XA_SQLiteDB2
             db.Update(user);
         }
 
-
+        public string GetAllUsers()
+        {
+            string data = "";
+            var db = new SQLiteConnection(dbPath);
+            Console.WriteLine("Reading data From Table");
+            var table = db.Table<Users>();
+            try
+            {
+                foreach (var s in table)
+                    data += s.UId + "\t" + s.Username + "\t" + s.Password + "\t" + s.Mobile + "\t" + s.Email + "\n";
+                return data;
+            }
+            catch
+            {
+                return "Empty";
+            }
+        }
 
 
         [Table("Users")]
