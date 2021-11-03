@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout1"
+        android:background="#ff546e7a">
+        <TextView
+            android:text="Create Screen"
+            android:layout_width="match_parent"
+            android:layout_height="89.0dp"
+            android:id="@+id/textView1"
+            android:background="#ff000000"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="#ffffffff"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:background="#ff000000">
+            <EditText
+                android:hint="Username"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="55.0dp"
+                android:id="@+id/username"
+                android:padding="10dp"
+                android:background="#ffffffff"
+                android:textColorHint="#ff000000" />
+            <EditText
+                android:hint="Password"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="55.0dp"
+                android:id="@+id/password"
+                android:padding="10dp"
+                android:background="#ffffffff"
+                android:textColorHint="#ff000000" />
+            <EditText
+                android:hint="Mobile"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="55.0dp"
+                android:id="@+id/mobile"
+                android:padding="10dp"
+                android:background="#ffffffff"
+                android:textColorHint="#ff000000" />
+            <EditText
+                android:hint="Email"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="55.0dp"
+                android:id="@+id/email"
+                android:padding="10dp"
+                android:background="#ffffffff"
+                android:textColorHint="#ff000000" />
+        </LinearLayout>
+             <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout4"
+                android:background="#ff9e9e9e"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:layout_gravity="center">
+            <Button
+                android:text="Create"
+                android:layout_width="120dp"
+                android:layout_height="79.0dp"
+                android:id="@+id/create"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="22dp" />
+            <Button
+                android:text="Cancel"
+                android:layout_width="120dp"
+                android:layout_height="77.5dp"
+                android:id="@+id/cancel"
+                android:layout_margin="10dp"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+</RelativeLayout>
