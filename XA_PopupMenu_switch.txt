@@ -1,0 +1,99 @@
+﻿Create a new folder in Resources named Menu
+Menu/popMenu.xml
+
+<?xml version = "1.0" encoding="utf-8"?>
+<menu xmlns:android = "http://schemas.android.com/apk/res/android">
+  <item
+     android:id = "@+id/file_settings"
+    
+     android:title = "Settings"
+     android:showAsAction = "ifRoom" />
+
+    <item
+       android:id = "@+id/new_game1"
+      
+       android:title = "New File Settings"/>
+    <item
+       android:id = "@+id/help"
+      
+       android:title = "Help" />
+    <item
+       android:id = "@+id/about_app"
+       
+       android:title = "About app"/>
+</menu>
+
+Activity_main.xml
+<Button
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:text="Button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:id="@+id/button1" />
+
+
+MainActivity.cs
+using Android.App;
+using Android.OS;
+using Android.Support.V7.App;
+using Android.Widget;
+namespace XA_PopupMenu_Switch
+{
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    public class MainActivity : AppCompatActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.activity_main);
+            Button button1 = FindViewById<Button>(Resource.Id.button1);
+
+            button1.Click += delegate
+            {
+                PopupMenu
+                menu = new PopupMenu(this, button1);
+                menu.Inflate(Resource.Menu.popMenu);
+                menu.Show();
+            };
+
+            //button1.Click += (s, arg) =>
+            //{
+            //    PopupMenu menu = new PopupMenu(this, button1);
+            //    menu.Inflate(Resource.Menu.popMenu);
+
+            //    menu.MenuItemClick += (s1, arg1) =>
+            //    {
+            //        Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
+            //    };
+
+            //    menu.DismissEvent += (s2, arg2) =>
+            //    {
+            //        Console.WriteLine("menu dismissed");
+            //        Toast.MakeText(this, "menu dismissed", ToastLength.Long).Show();
+            //    };
+            //    menu.Show();
+            //};
+
+            Switch s = FindViewById<Switch>(Resource.Id.do_switch);
+
+            s.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) {
+
+                var toast = Toast.MakeText(this, "Your answer is " + (e.IsChecked ? "correct" : "incorrect"),                                    ToastLength.Short);
+                toast.Show();
+
+               // Toast.MakeText(this, "Your answer is " + (e.IsChecked ? "correct" : "incorrect"), ToastLength.Short).Show();
+
+                //if (e.IsChecked)
+                //{
+                //    Toast.MakeText(this, "correct", ToastLength.Short).Show();
+                //}
+                //else
+                //{
+                //    Toast.MakeText(this, "incorrect", ToastLength.Short).Show();
+                //}
+            };
+        }
+    }
+}
